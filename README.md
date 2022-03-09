@@ -1,1 +1,1 @@
-# simple tests of a comments form in Wordpress using robotframework
+# simple robotframework tests of a contact form in Wordpress 
