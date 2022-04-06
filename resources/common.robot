@@ -5,6 +5,8 @@ Library    SeleniumLibrary
 ${MAIN_PAGE_TITLE}    Site Title
 ${BROWSER}    chrome
 ${MAIN_PAGE_LINK}    https://testblogselenium.wordpress.com/
+${IFRAME}    //*[@id="cmp-app-container"]//iframe
+${IAGRE_BUTTON}   //button[contains(., 'I Agree!')]
 
 
 *** Keywords ***
@@ -15,10 +17,10 @@ Open Login Page
     title should be    ${MAIN_PAGE_TITLE}
     wait until page contains    Agree
 #    The cookies bar is nested in on from several iframes inside the page structure, therefore it is needed to specify this particular iframe
-    select frame    //*[@id="cmp-app-container"]//iframe
-    wait until element is visible    //button[contains(., 'I Agree!')]
-    click element    //button[contains(., 'I Agree!')]
-    wait until element is not visible   //button[contains(., 'I Agree!')]
+    select frame    ${IFRAME}
+    wait until element is visible    ${IAGRE_BUTTON}
+    click element    ${IAGRE_BUTTON}
+    wait until element is not visible   ${IAGRE_BUTTON}
     unselect frame
     maximize browser window
 
